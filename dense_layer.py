@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+# 1. Create Dense layer from scartch
+
 class DenseLayer(tf.keras.layer.Layer):
     def __init__(self, input_dim, output_dim):
         super(DenseLayer, self).__init__()
@@ -16,3 +18,9 @@ class DenseLayer(tf.keras.layer.Layer):
         output = tf.math.sigmoid(z)
 
         return output
+
+# 2. Create a Dense Layer using tensorflow
+
+layer = tf.keras.layers.Dense(
+    units=2
+)
