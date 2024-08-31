@@ -49,3 +49,17 @@ loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, predicted))
 # Mean Squared Error Loss (Regression problems)
 loss = tf.reduce_mean(tf.square(tf.subtract(y, predicted)))
 loss = tf.keras.losses.MSE(y, predicted)
+
+# Gradient Descent
+def compute_loss(weights):
+    return tf.reduce_mean(tf.square(tf.subtract(y, predicted)))
+
+weights = tf.Variable([tf.random.normal()])
+lr = 0.01
+
+while True:
+    with tf.GradientTape() as g:
+        loss = compute_loss(weights)
+        gradient = g.gradient(loss, weights)
+
+    weights = weights - lr * gradient
