@@ -26,8 +26,17 @@ layer = tf.keras.layers.Dense(
 )
 
 # 3. Multi output perceptron
-n = int(input('Number of units for hidden layers: '))
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(n),
+    tf.keras.layers.Dense(n=0),
+    tf.keras.layers.Dense(2)
+])
+
+# 4. Deep Neural Network
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(n1=0),
+    tf.keras.layers.Dense(n2=0),
+    # .
+    # .
+    # .
     tf.keras.layers.Dense(2)
 ])
