@@ -45,3 +45,7 @@ model = tf.keras.Sequential([
 y = 'actual value'
 predicted = 'predicted value'
 loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, predicted))
+
+# Mean Squared Error Loss (Regression problems)
+loss = tf.reduce_mean(tf.square(tf.subtract(y, predicted)))
+loss = tf.keras.losses.MSE(y, predicted)
