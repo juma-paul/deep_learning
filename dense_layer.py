@@ -63,3 +63,23 @@ while True:
         gradient = g.gradient(loss, weights)
 
     weights = weights - lr * gradient
+    break # shouldn't be here, this is a place for specifying convergence point (Check below)
+
+# PUTTING IT ALL TOGETHER
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(n1=0),
+    tf.keras.layers.Dense(n2=0),
+    tf.keras.layers.Dense(2)
+])
+
+optimizer = tf.keras.optimizer.SGD()
+
+while True:
+    prediction = model(x='inputs to model')
+
+    with tf.GradientTape() as tape:
+        loss = tf.reduce_mean(tf.square(tf.subtract(y, predicted)))
+    
+    grads = tape.gradient(loss, model.trainable_variables)
+    optimizer.apply_gradients(zip(grads, model.trainable_variables))
