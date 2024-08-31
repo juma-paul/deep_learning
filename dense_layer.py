@@ -24,3 +24,10 @@ class DenseLayer(tf.keras.layer.Layer):
 layer = tf.keras.layers.Dense(
     units=2
 )
+
+# 3. Multi output perceptron
+n = int(input('Number of units for hidden layers: '))
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(n),
+    tf.keras.layers.Dense(2)
+])
