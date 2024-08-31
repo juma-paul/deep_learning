@@ -55,7 +55,7 @@ def compute_loss(weights):
     return tf.reduce_mean(tf.square(tf.subtract(y, predicted)))
 
 weights = tf.Variable([tf.random.normal()])
-lr = 0.01
+lr = tf.keras.optimizer.SGD()
 
 while True:
     with tf.GradientTape() as g:
